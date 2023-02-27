@@ -1,7 +1,6 @@
 import string
 import re
 
-
 class TextCleaner(object):
     def __init__(self, text):
         self.text = text
@@ -30,8 +29,8 @@ class TextCleaner(object):
         self.remove_digits()
         return self.text
 
-
 class TextStemmer(object):
+    'Stemming procedure taken from https://github.com/Tutanchamon/pl_stemmer/blob/master/pl_stemmer.py'
     def __init__(self, text):
         self.text = text
         self.word = word
@@ -127,7 +126,6 @@ class TextStemmer(object):
             stem = remove_general_ends(stem)
             result.append((word, stem))
         return result
-
 
 if __name__ == "main":
     text = 'czerwony czerwonawy. czerwieńszy czerwona, czerwonawa CZerwono'
