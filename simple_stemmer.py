@@ -2,6 +2,13 @@ import string
 import re
 
 class TextCleaner(object):
+    """
+    Text cleaner. This class can remove any digits and punctuation from a given
+    text. It also makes the text lowercase.
+
+    Args:
+        object (str): a sentence as a single string
+    """
     def __init__(self, text):
         self.text = text
     
@@ -30,10 +37,20 @@ class TextCleaner(object):
         return self.text
 
 class TextStemmer(object):
-    'Stemming procedure taken from https://github.com/Tutanchamon/pl_stemmer/blob/master/pl_stemmer.py'
+    """
+    Simple stemmer based on a Porter stemmer for polish language
+    Stemming procedure was taken from
+    https://github.com/Tutanchamon/pl_stemmer/blob/master/pl_stemmer.py'
+
+    Args:
+        object (str): a sentence as a single string
+
+    Returns:
+        _type_: _description_
+    """
     def __init__(self, text):
         self.text = text
-        self.word = word
+        # self.word = word
     
     def __repr__(self):
         return self.text
@@ -117,13 +134,13 @@ class TextStemmer(object):
         result = []
         for word in self.text.split():
             stem = word[:]
-            stem = remove_nouns(stem)
-            stem = remove_diminutive(stem)
-            stem = remove_adjective_ends(stem)
-            stem = remove_verbs_ends(stem)
-            stem = remove_adverbs_ends(stem)
-            stem = remove_plural_forms(stem)
-            stem = remove_general_ends(stem)
+            stem = self.remove_nouns(stem)
+            stem = self.remove_diminutive(stem)
+            stem = self.remove_adjective_ends(stem)
+            stem = self.remove_verbs_ends(stem)
+            stem = self.remove_adverbs_ends(stem)
+            stem = self.remove_plural_forms(stem)
+            stem = self.remove_general_ends(stem)
             result.append((word, stem))
         return result
 
