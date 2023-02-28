@@ -4,7 +4,7 @@ A simple stemmer based on Porter stemmer for polisth langage.
 
 This file is a modification of _plstemmer_ library.
 
-**[Go to pl_stemmer](https://github.com/Tutanchamon/pl_stemmer/blob/master/pl_stemmer.py')**
+**[Go to pl_stemmer](https://github.com/Tutanchamon/pl_stemmer/tree/master)**
 
 > ℹ️ **NOTE:** Changes between simple_stemmer and pl_stemmer: 
 > * Support for Python 3
