@@ -11,3 +11,7 @@ This file is a modification of _plstemmer_ library.
 > * No file handling only raw text
 > * Consistent output as an object 
 > * Added text cleaning class
+
+> ℹ️ **HOW TO USE:**
+> python simple_stemmer.py "To jest przykładowe zdanie w języku polskim"
+> [('To', 'to'), ('jest', 'jest'), ('przykładowe', 'przykład'), ('zdanie', 'zdan'), ('w', 'w'), ('języku', 'język'), ('polskim', 'polskim')]
