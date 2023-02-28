@@ -1,5 +1,6 @@
 import string
 import re
+import sys
 
 class TextCleaner(object):
     """
@@ -49,20 +50,16 @@ class TextStemmer(object):
         _type_: _description_
     """
     def __init__(self, text):
-        self.text = text
-        # self.word = word
-    
-    def __repr__(self):
-        return self.text
+        self.text = text.lower()
 
-    def remove_general_ends(word):
+    def remove_general_ends(self, word):
         if len(word) > 4 and word[-2:] in {"ia", "ie"}:
             return word[:-2]
-        if len(word) > 4 and word[-1:] in {"u", u"ą", "i", "a", u"ę", "y", u"ę", u"ł"}:
+        if len(word) > 4 and word[-1:] in {"u", "ą", "i", "a", "ę", "y", "ł"}:
             return word[:-1]
         return word
-        
-    def remove_diminutive(word):
+
+    def remove_diminutive(self, word):
         if len(word) > 6:
             if word[-5:] in {"eczek", "iczek", "iszek", "aszek", "uszek"}:
                 return word[:-5]
@@ -72,8 +69,9 @@ class TextStemmer(object):
             if word[-2:] in {"ek", "ak"}:
                 return word[:-2]
         return word
-        
-    def remove_verbs_ends(word):
+
+
+    def remove_verbs_ends(self, word):
         if len(word) > 5 and word.endswith("bym"):
             return word[:-3]
         if len(word) > 5 and word[-3:] in {"esz", "asz", "cie", u"eść", u"aść", u"łem", "amy", "emy"}:
@@ -86,7 +84,7 @@ class TextStemmer(object):
             return word[:-2]
         return word
 
-    def remove_nouns(word):
+    def remove_nouns(self, word):
         if len(word) > 7 and word[-5:] in {"zacja", u"zacją", "zacji"}:
             return word[:-4]
         if len(word) > 6 and word[-4:] in {"acja", "acji", u"acją", "tach", "anie", "enie",
@@ -102,7 +100,7 @@ class TextStemmer(object):
             return word[:-2]
         return word
         
-    def remove_adjective_ends(word):
+    def remove_adjective_ends(self, word):
         if len(word) > 7 and word.startswith("naj") and (word.endswith("sze")
         or word.endswith("szy")):
             return word[3:-3]
@@ -116,14 +114,14 @@ class TextStemmer(object):
             return word[:-2]
         return word
         
-    def remove_adverbs_ends(word):
+    def remove_adverbs_ends(self, word):
         if len(word) > 4 and word[:-3] in {"nie", "wie"}:
             return word[:-2]
         if len(word) > 4 and word.endswith("rze"):
             return word[:-2]
         return word
 
-    def remove_plural_forms(word):
+    def remove_plural_forms(self, word):
         if len(word) > 4 and (word.endswith(u"ów") or word.endswith("om")):
             return word[:-2]
         if len(word) > 4 and word.endswith("ami"):
@@ -133,8 +131,7 @@ class TextStemmer(object):
     def make_stems(self):
         result = []
         for word in self.text.split():
-            stem = word[:]
-            stem = self.remove_nouns(stem)
+            stem = self.remove_general_ends(word)
             stem = self.remove_diminutive(stem)
             stem = self.remove_adjective_ends(stem)
             stem = self.remove_verbs_ends(stem)
@@ -144,12 +141,11 @@ class TextStemmer(object):
             result.append((word, stem))
         return result
 
-if __name__ == "main":
-    text = 'czerwony czerwonawy. czerwieńszy czerwona, czerwonawa CZerwono'
+text = sys.argv[1]
+data = TextCleaner(text)
+data = data.clean()
 
-    data = TextCleaner(text)
-    data = data.clean()
+stemmer_object = TextStemmer(data)
 
-    stemmer_object = TextStemmer(data)
-    result = stemmer_object.make_stems()
-    print(result)
+result = stemmer_object.make_stems()
+print(result)
