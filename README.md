@@ -6,7 +6,7 @@ This file is a modification of _plstemmer_ library.
 
 **[Go to pl_stemmer](https://github.com/Tutanchamon/pl_stemmer/tree/master)**
 
-> ℹ️ **NOTE:** Changes between simple_stemmer and pl_stemmer: 
+ℹ️ **NOTE:** Changes between simple_stemmer and pl_stemmer: 
 > * Support for Python 3
 > * No file handling only raw text
 > * Consistent output as an object 
