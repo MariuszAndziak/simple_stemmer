@@ -1,6 +1,6 @@
 <p align="center"><h1>💡 Simple Stemmer</h1></p>
 
-A simple stemmer based on Porter stemmer for polisth langage.
+A simple stemmer based on Porter stemmer for polish langage.
 
 This file is a modification of _plstemmer_ library.
 
