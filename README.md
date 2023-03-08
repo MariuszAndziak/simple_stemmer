@@ -2,7 +2,7 @@
 
 A simple stemmer based on Porter stemmer for polish langage.
 
-This file is a modification of _plstemmer_ library.
+This file is a modification of _pl_stemmer_ library.
 
 **[Go to pl_stemmer](https://github.com/Tutanchamon/pl_stemmer/tree/master)**
 
