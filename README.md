@@ -1,4 +1,5 @@
 <p align="center"><h1>💡 Simple Stemmer</h1></p>
+[![Generic badge](https://img.shields.io/badge/languge-polish-red.svg)](https://shields.io/)
 
 A simple stemmer based on Porter stemmer for polish langage.
 
