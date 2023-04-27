@@ -1,9 +1,8 @@
-<p align="center"><h1>💡 Simple Stemmer</h1></p>
-[![Generic badge](https://img.shields.io/badge/languge-polish-red.svg)]
+## 💡 Simple Stemmer
 
-A simple stemmer based on Porter stemmer for polish langage.
+![Generic badge](https://img.shields.io/badge/languge-polish-red.svg)
 
-This file is a modification of _pl_stemmer_ library.
+A simple stemmer based on Porter stemmer for polish langage. This file is a modification of _pl_stemmer_ library.
 
 **[Go to pl_stemmer](https://github.com/Tutanchamon/pl_stemmer/tree/master)**
 
